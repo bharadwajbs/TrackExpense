@@ -1,11 +1,62 @@
 ﻿@page
-@model IndexModel
+@model TrackExpense.Models.ExpenseDetail
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>This is another line added to test CI/CD from local code push to git</p>
+    <h1 class="display-4">Log Expense</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto" align="left"><label asp-for="UserEmail" class="control-label"></label></div>
+                        <div class="col-auto" align="right">
+                            <input asp-for="UserEmail" class="form-control" />
+                            <span asp-validation-for="UserEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto" align="left"><label asp-for="Date" class="control-label"></label></div>
+                        <div class="col-auto" align="right">
+                            <input asp-for="Date" value="@DateTime.Now" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto" align="left"><label asp-for="ExpenseDescription" class="control-label">Spent On</label></div>
+                        <div class="col-auto" align="right">
+                            <input asp-for="ExpenseDescription" class="form-control" />
+                            <span asp-validation-for="ExpenseDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto" align="left"><label asp-for="Amount" class="control-label"></label></div>
+                        <div class="col-auto" align="right">
+                            <input asp-for="Amount" class="form-control" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <input type="submit" value="Add Expense" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
